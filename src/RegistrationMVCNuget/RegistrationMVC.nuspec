@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>RegistrationMVC</id>
+        <version>0.0.1</version>
+        <authors>Alfonso9</authors>
+        <owners>Alfonso9</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Incluye la administración de usuarios</description>
+        <releaseNotes>Contiene las siguientes funcionalidades:
+         Inicío de sesión y Recuperación de contraseña.</releaseNotes>
+        <copyright>Copyright 2017</copyright>
+        <tags>#Linq #VS2017 #ReposityDesingPattern</tags>
+        <dependencies>
+            <dependency id="Antlr" version="3.5.0.2"/>
+            <dependency id="Castle.Core" version="4.0.0"/>
+            <dependency id="EntityFramework" version="6.1.3"/>
+            <dependency id="Microsoft.AspNet.Mvc" version="5.2.3"/>
+            <dependency id="Microsoft.AspNet.Razor" version="3.2.3"/>
+            <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.3"/>
+            <dependency id="Microsoft.AspNet.WebPages" version="3.2.3"/>
+            <dependency id="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" version="1.0.4"/>
+            <dependency id="Microsoft.Net.Compilers" version="2.1.0"/>
+            <dependency id="Microsoft.Web.Infrastructure" version="1.0.0"/>
+            <dependency id="Newtonsoft.Json" version="10.0.2"/>
+            <dependency id="Ninject" version="3.2.2"/>
+            <dependency id="WebGrease" version="1.6.0"/>
+            
+
+        </dependencies>
+    </metadata>
+    <files>
+        <!--App_Start-->
+        <file src="RegistrationMVC\App_Start\*.pp" target="Content\App_Start\"/>
+
+        <file src="RegistrationMVC\Content\*" target="Content\Content\"/>
+
+        <file src="RegistrationMVC\Controllers\*" target="Content\Controllers\"/>
+
+        <file src="RegistrationMVC\Infraestructure\*" target="Content\Infraestructure\"/>
+
+        <file src="RegistrationMVC\Models\*" target="Content\Models\"/>
+        
+        <file src="RegistrationMVC\Scripts\*" target="Content\Scripts"/>
+
+        <file src="RegistrationMVC\Views\Cuentas\*" target="Content\Views\Cuentas\"/>
+
+        <file src="RegistrationMVC\Views\Principal\*" target="Content\Views\Principal\"/>
+
+        <file src="RegistrationMVC\Views\Shared\*" target="Content\Views\Shared\"/>
+
+        <file src="RegistrationMVC\Views\_ViewStart.cshtml" target="Content\Views\"/>
+
+        <file src="RegistrationMVC\Views\web.config.transform" target="Content\Views\"/>
+        
+        <!--<file src="RegistrationMVC\Global.asax" target="Content\Global.asax"/>
+        
+        <file src="RegistrationMVC\Global.asax.cs" target="Content\Global.asax.cs"/>
+        
+        <file src="RegistrationMVC\Web.config" target="Content\Web.config"/>-->
+    </files>
+</package>

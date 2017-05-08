@@ -1,0 +1,48 @@
+﻿@model RegistrationMVC.Models.Cuentas.Input.UsuarioModel
+
+<div class="container">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h2 class="form-signin-heading">Iniciar Sesión</h2>
+        @Html.ValidationSummary(true)
+
+        @Html.ValidationMessageFor(m => m._Usuario)
+        @Html.LabelFor(m => m._Usuario, new { @class = "sr-only" })
+        @Html.TextBoxFor(m => m._Usuario, new
+   {
+       @class = "form-control",
+       @placeholder = HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m._Usuario).ToHtmlString()),
+       @required = "required",
+       @autofocus = "autofocus"
+   })
+
+        @Html.ValidationMessageFor(m => m._Contrasenia)
+        @Html.LabelFor(m => m._Contrasenia, new { @class = "sr-only" })
+        @Html.PasswordFor(m => m._Contrasenia, new
+   {
+       @class = "form-control",
+       @placeholder = HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m._Contrasenia).ToHtmlString()),
+       @required = "required",
+       @autofocus = "autofocus"
+   })
+
+        <div class="checkbox">
+            <label> 
+                @Html.CheckBoxFor(m => m._Recordarme)
+                @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m._Recordarme).ToHtmlString())
+            </label>
+        </div>
+
+        @Html.ActionLink("¿Olvido la contraseña?", "Recuperar", "Cuentas")
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+    }
+</div> 
+<!-- /container -->
+
+@section scripts
+{
+
+}

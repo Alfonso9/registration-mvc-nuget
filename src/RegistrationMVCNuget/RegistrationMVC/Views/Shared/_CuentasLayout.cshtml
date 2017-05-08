@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @RenderPage("_MetaInformacionPartial.cshtml")
+    @Styles.Render("~/bundles/boostrap-font-styles")
+    @Styles.Render("~/bundles/site-style")
+</head>
+<body style="background:#F7F7F7;">
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery-bootstrap-scripts")
+    @RenderSection("scripts", false)
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>

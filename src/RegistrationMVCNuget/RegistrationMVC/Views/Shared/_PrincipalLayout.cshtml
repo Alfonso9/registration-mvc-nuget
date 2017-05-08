@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @RenderPage("_MetaInformacionPartial.cshtml")
+    @RenderPage("_EstiloPartial.cshtml")
+</head>
+<body>
+    <h1>BASICLAYOUT</h1>
+    @RenderBody()
+
+    @RenderPage("_ScriptsPartial.cshtml")
+    @RenderSection("scripts", false)
+</body>
+</html>

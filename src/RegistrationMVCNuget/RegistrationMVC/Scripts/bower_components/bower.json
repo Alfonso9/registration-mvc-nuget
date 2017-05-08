@@ -1,0 +1,28 @@
+{
+  "name": "registrationMVC",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "Alfonso09"
+  ],
+  "description": "Registration in MVC using Bootstrap",
+  "keywords": [
+    "css",
+    "js",
+    "html",
+    "bootstrap",
+    "net"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "documentation"
+  ],
+  "devDependencies": {
+    "jquery": "3.2.1",
+    "tether":"1.4.0",
+    "bootstrap": "4.0.0-alpha.6"
+  },
+  "dependencies": {
+  }
+}
