@@ -325,6 +325,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Filters\SesionIniciada.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -547,6 +548,7 @@
     <Content Include="Scripts\bower_components\vendors\tether\src\css\tether-theme-basic.sass" />
     <Content Include="Scripts\bower_components\vendors\tether\src\css\tether.sass" />
     <Content Include="Scripts\bower_components\README.md" />
+    <Content Include="Views\Cuentas\Recuperar.cshtml" />
     <None Include="Views\web.config.transform" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

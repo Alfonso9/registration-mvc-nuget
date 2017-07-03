@@ -12,7 +12,9 @@ namespace RegistrationMVC.Infraestructure.Concret
 
             try
             {
+                _Usuario = new UsuarioModel();
 
+                _Usuario._Usuario = "alfonso09.lr@gmail.com";
             }
             catch
             {

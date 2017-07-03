@@ -1,6 +1,7 @@
 ﻿using System;
 using RegistrationMVC.Infraestructure.Abstract;
 using RegistrationMVC.Models.Cuentas.Input;
+using System.Web.Security;
 
 namespace RegistrationMVC.Infraestructure.Concret
 {
@@ -8,20 +9,17 @@ namespace RegistrationMVC.Infraestructure.Concret
     {
         public bool Autenticar(UsuarioModel usuario)
         {
-            /*Almacena el resultado del metodo*/
             bool _Autenticado = false;
 
             try
             {
+                UsuarioModel _Usuario = new UsuarioModel(); //_IUsersRepository.GetUsuario(usuario, contrasenia);
 
-                /*Almacena el numero de registro encontrados con los filtros colocados*/
-                //Usuarios _Usuario = _IUsersRepository.GetUsuario(usuario, contrasenia);
+                _Usuario._Usuario = "alfonso09.lr@gmail.com";
+                _Usuario._Recordarme = true;
 
-                //if (_Usuario != null)
+                if (_Usuario != null)
                 {
-                    //FormsAuthentication.SetAuthCookie(_Usuario.Usuario, recordarme);
-                    //_Usuario.UltimoAcceso = DateTime.Now;
-                    //_IUsersRepository.Update(_Usuario);
                     _Autenticado = true;
                 }
             }

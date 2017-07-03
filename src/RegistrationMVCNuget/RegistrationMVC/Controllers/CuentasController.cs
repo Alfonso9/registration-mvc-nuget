@@ -1,6 +1,8 @@
 ﻿using RegistrationMVC.Models.Cuentas.Input;
 using RegistrationMVC.Infraestructure.Abstract;
 using System.Web.Mvc;
+using System.Web.Security;
+using RegistrationMVC.Filters;
 
 namespace RegistrationMVC.Controllers
 {
@@ -16,20 +18,26 @@ namespace RegistrationMVC.Controllers
         }
 
         [HttpGet]
+        [SesionIniciada]
         public ActionResult IniciarSesion()
         {
             return View();
         }
 
         [HttpPost]
+        [SesionIniciada]
         [ValidateAntiForgeryToken]
-        public ActionResult IniciarSesion(UsuarioModel usuario)
-        { 
+        public ActionResult IniciarSesion(UsuarioModel usuario, string returnUrl)
+        {
             if (ModelState.IsValid)
             {
                 if (_IAuthProvider.Autenticar(usuario))
                 {
                     UsuarioModel _Usuario = _IUsersRepository.ObtenerUsuario(usuario);
+
+                    FormsAuthentication.SetAuthCookie(_Usuario._Usuario, _Usuario._Recordarme);
+
+                    //FormsAuthentication.RedirectFromLoginPage(_Usuario._Usuario, _Usuario._Recordarme);
 
                     if (!AlmacenarDatosEnSesion(_Usuario))
                     {
@@ -37,7 +45,15 @@ namespace RegistrationMVC.Controllers
                         return View();
                     }
 
-                    return Redirect("Principal/Index");
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Principal");
+                    }
                 }
                 else
                 {
@@ -49,6 +65,25 @@ namespace RegistrationMVC.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public void CerrarSesion()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            Response.Redirect(FormsAuthentication.LoginUrl);
+            //FormsAuthentication.RedirectToLoginPage();
+        }
+
+
+        [HttpGet]
+        [SesionIniciada]
+        [AllowAnonymous]
+        public ActionResult Recuperar()
+        {
+            return View();
         }
 
         private bool AlmacenarDatosEnSesion(UsuarioModel usuario)
